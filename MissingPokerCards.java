@@ -43,7 +43,7 @@ public class MissingPokerCards{
       }
 	  public static void main(String[] args) throws Exception {
             Configuration conf = new Configuration();
-            #String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+            String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
 
 	    Job job = new Job(conf, "MissingPokerCards");
     	    job.setJarByClass(MissingPokerCards.class);
