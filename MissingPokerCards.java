@@ -48,13 +48,13 @@ public class MissingPokerCards{
 	    Job job = new Job(conf, "MissingPokerCards");
     	    job.setJarByClass(MissingPokerCards.class);
     	    job.setMapperClass(Map.class);
-    	    '#job.setCombinerClass(IntSumReducer.class);'
+    	    
     	    job.setReducerClass(Reduce.class);
     	    job.setOutputKeyClass(Text.class);
     	    job.setOutputValueClass(IntWritable.class);
-    	    '#for (int i = 0; i < otherArgs.length - 1; ++i) {
-      	    #    FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
-            #}'
+    	    for (int i = 0; i < otherArgs.length - 1; ++i) {
+      	        FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
+            }
             FileOutputFormat.setOutputPath(job, new Path(otherArgs[otherArgs.length - 1]));
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         }
