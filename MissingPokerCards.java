@@ -48,7 +48,7 @@ public class MissingPokerCards{
 	    Job job = new Job(conf, "MissingPokerCards");
     	    job.setJarByClass(MissingPokerCards.class);
     	    job.setMapperClass(Map.class);
-    	    
+    	    job.setCombinerClass(IntSumReducer.class);
     	    job.setReducerClass(Reduce.class);
     	    job.setOutputKeyClass(Text.class);
     	    job.setOutputValueClass(IntWritable.class);
