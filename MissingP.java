@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class MissingPoker
+public class MissingP
 {
     public static class Map extends Mapper<LongWritable, Text, Text, IntWritable>
     {
@@ -56,8 +56,8 @@ public class MissingPoker
             Configuration conf = new Configuration();
             
 
-	    Job job = new Job(conf, "MissingPoker");
-    	    job.setJarByClass(MissingPoker.class);
+	    Job job = new Job(conf, "MissingP");
+    	    job.setJarByClass(MissingP.class);
     	    job.setMapperClass(Map.class);
     	    //job.setCombinerClass(Reduce.class);
     	    job.setReducerClass(Reduce.class);
