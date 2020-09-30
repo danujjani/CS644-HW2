@@ -44,19 +44,17 @@ public class MissingPokerCards{
       }
 	  public static void main(String[] args) throws Exception {
             Configuration conf = new Configuration();
-            String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+            
 
 	    Job job = new Job(conf, "MissingPokerCards");
     	    job.setJarByClass(MissingPokerCards.class);
     	    job.setMapperClass(Map.class);
-    	    job.setCombinerClass(Reduce.class);
+    	    //job.setCombinerClass(Reduce.class);
     	    job.setReducerClass(Reduce.class);
     	    job.setOutputKeyClass(Text.class);
     	    job.setOutputValueClass(IntWritable.class);
-    	    for (int i = 0; i < otherArgs.length - 1; ++i) {
-      	        FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
-            }
-            FileOutputFormat.setOutputPath(job, new Path(otherArgs[otherArgs.length - 1]));
+    	    FileInputFormat.addInputPath(job, new Path(args[0]));
+            FileOutputFormat.setOutputPath(job, new Path(args[1]));
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         }
     }
