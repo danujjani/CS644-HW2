@@ -69,7 +69,7 @@ public class MissingC
     	Configuration config = new Configuration();
         Job job = new Job(config, "MissingC");
         
-        job.setJarByClass(MissingCards.class);
+        job.setJarByClass(MissingC.class);
         
         job.setMapperClass(Map.class);
         job.setReducerClass(Reduce.class);
