@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
+//import java.util.StringTokenizer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
@@ -51,10 +51,12 @@ public class MissingPokerCards{
     	    job.setMapperClass(Map.class);
     	    //job.setCombinerClass(Reduce.class);
     	    job.setReducerClass(Reduce.class);
-    	    job.setOutputKeyClass(Text.class);
-    	    job.setOutputValueClass(IntWritable.class);
+    	    job.setMapOutputKeyClass(Text.class);
+    	    job.setMapOutputValueClass(IntWritable.class);
+		  
     	    FileInputFormat.addInputPath(job, new Path(args[0]));
             FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		  
             System.exit(job.waitForCompletion(true) ? 0 : 1);
         }
     }
