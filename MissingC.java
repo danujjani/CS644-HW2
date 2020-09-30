@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import java.io.IOException;
 import java.util.ArrayList;
-public class MissingCards
+public class MissingC
 {
     /*
     *Class extending Mapper Class
@@ -67,7 +67,7 @@ public class MissingCards
     public static void main(String[] args)throws Exception
     {
     	Configuration config = new Configuration();
-        Job job = new Job(config, "MissingCards");
+        Job job = new Job(config, "MissingC");
         
         job.setJarByClass(MissingCards.class);
         
