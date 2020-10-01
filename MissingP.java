@@ -15,6 +15,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
 
 public class MissingP
 {
+    // This is a class for the Mapper
     public static class Map extends Mapper<LongWritable, Text, Text, IntWritable>
     {
         public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException
@@ -24,6 +25,7 @@ public class MissingP
 	  context.write(new Text(split[0]), new IntWritable(Integer.parseInt(split[1])));
         }
     }
+    // This is a class for the Reducer
     public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable>
     {
         public void reduce(Text key, Iterable<IntWritable> value, Context context)throws IOException, InterruptedException
@@ -51,6 +53,7 @@ public class MissingP
           }
         }
       }
+	// This is the main function that actually runs the application/program
 	  public static void main(String[] args) throws Exception 
 	  {
             Configuration conf = new Configuration();
